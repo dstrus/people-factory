@@ -9,6 +9,11 @@ const handleSubmit = (ev) => {
   const age = form.age.value
   const birthplace = form.birthplace.value
 
+  const colorDiv = `
+    <div style="height: 100px; width: 100px; background-color: ${hairColor}">
+    </div>
+  `
+
   details.innerHTML = `
     <dl>
       <li>
@@ -17,7 +22,7 @@ const handleSubmit = (ev) => {
       </li>
       <li>
         <dt>Hair Color</dt>
-        <dd>${hairColor}</dd>
+        <dd>${colorDiv}</dd>
       </li>
       <li>
         <dt>Age</dt>
