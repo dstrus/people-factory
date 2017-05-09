@@ -17,7 +17,9 @@
       So many people
     </p>
 
-    <p>I need a whole factory</p>
+    <p class="special">I need a whole factory.</p>
+
+    <p class="special">What I really want is a Cheesecake Factory.</p>
 
     <script>
       const h1 = document.querySelector('h1')
@@ -30,6 +32,9 @@
       console.log(ps)
       ps.forEach(p => console.log(p.textContent.trim()))
       console.groupEnd()
+
+      const special = document.querySelectorAll('.special')
+      special.forEach(p => p.style.color = 'red')
       
     </script>
   </body>
