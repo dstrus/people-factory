@@ -5,22 +5,13 @@ const renderColor = (color) => (`
   </div>
 `)
 
-const handleSubmit = (ev) => {
-  ev.preventDefault()
-  const form = ev.target
-  const details = document.querySelector('.details')
-  const firstName = form.firstName.value
-  const hairColor = form.hairColor.value
-  const age = form.age.value
-  const birthplace = form.birthplace.value
-  
-  const colorDiv = renderColor(hairColor)
-
-  details.innerHTML = `
+const buildList = (listValues) => {
+  const colorDiv = renderColor(listValues.hairColor)
+  return `
     <dl>
       <li>
         <dt>First Name</dt>
-        <dd>${firstName}</dd>
+        <dd>${listValues.firstName}</dd>
       </li>
       <li>
         <dt>Hair Color</dt>
@@ -28,14 +19,29 @@ const handleSubmit = (ev) => {
       </li>
       <li>
         <dt>Age</dt>
-        <dd>${age}</dd>
+        <dd>${listValues.age}</dd>
       </li>
       <li>
         <dt>Birthplace</dt>
-        <dd>${birthplace}</dd>
+        <dd>${listValues.birthplace}</dd>
       </li>
     </dl>
   `
+}
+
+const handleSubmit = (ev) => {
+  ev.preventDefault()
+  const form = ev.target
+  const details = document.querySelector('.details')
+
+  const formValues = {
+    firstName: form.firstName.value,
+    hairColor: form.hairColor.value,
+    age: form.age.value,
+    birthplace: form.birthplace.value,
+  }
+
+  details.innerHTML = buildList(formValues)
 }
 
 personForm.addEventListener('submit', handleSubmit)
