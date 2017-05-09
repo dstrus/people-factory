@@ -2,48 +2,49 @@ body {
   padding: 1rem;
 }
 
-section > div {
-  width: 80%;
-  margin: 20px auto;
+section {
+  display: flex;
 }
 
-dl {
-  padding: 15px 10px;
+section > div {
+  flex-grow: 1;
+}
+
+.details {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 dl > li {
   list-style: none;
 }
 
-dt, dd {
-  display: inline-block;
-  vertical-align: top;
-  width: 48%;
+dl > li + li {
+  margin-top: 1rem;
+}
+
+dl {
+  padding: 0.5em;
+}
+dt {
+  float: left;
+  clear: left;
+  width: 100px;
+  text-align: right;
+  font-weight: bold;
+  color: green;
+}
+dt::after {
+  content: ":";
+}
+dd {
+  margin: 0 0 0 110px;
+  padding: 0 0 0.5em 0;
 }
 
 dl:nth-of-type(even) {
   background-color: WhiteSmoke;
 }
 
-@media (min-width: 700px) {
-  section > div {
-    width: 60%;
-  }
-}
-
-@media (min-width: 900px) {
-  section > div {
-    float: left;
-    width: 40%;
-  }
-
-  section > div + div {
-    margin: 20px 5%;
-  }
-
-  section::after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-}
