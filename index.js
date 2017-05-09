@@ -22,7 +22,6 @@
 
   const buildList = (listValues) => {
     const dl = document.createElement('dl')
-    dl.style.border = '1px solid #1779ba'
     dl.appendChild(buildListItem('Name', listValues.firstName))
     dl.appendChild(buildListItem('Hair Color', listValues.hairColor))
     dl.appendChild(buildListItem('Age', listValues.age))
