@@ -5,28 +5,39 @@ const renderColor = (color) => (`
   </div>
 `)
 
+const buildListItem = (item) => {
+  return `
+    <li>
+      <dt>${item.name}</dt>
+      <dd>${item.value}</dd>
+    </li>
+  `
+}
+
 const buildList = (listValues) => {
   const colorDiv = renderColor(listValues.hairColor)
-  return `
-    <dl>
-      <li>
-        <dt>First Name</dt>
-        <dd>${listValues.firstName}</dd>
-      </li>
-      <li>
-        <dt>Hair Color</dt>
-        <dd>${colorDiv}</dd>
-      </li>
-      <li>
-        <dt>Age</dt>
-        <dd>${listValues.age}</dd>
-      </li>
-      <li>
-        <dt>Birthplace</dt>
-        <dd>${listValues.birthplace}</dd>
-      </li>
-    </dl>
+  const dl = document.createElement('dl');
+  dl.style.border = '1px solid #1779ba';
+  dl.innerHTML = `
+    <li>
+      <dt>First Name</dt>
+      <dd>${listValues.firstName}</dd>
+    </li>
+    <li>
+      <dt>Hair Color</dt>
+      <dd>${colorDiv}</dd>
+    </li>
+    <li>
+      <dt>Age</dt>
+      <dd>${listValues.age}</dd>
+    </li>
+    <li>
+      <dt>Birthplace</dt>
+      <dd>${listValues.birthplace}</dd>
+    </li>
   `
+
+  return dl
 }
 
 const handleSubmit = (ev) => {
@@ -41,7 +52,7 @@ const handleSubmit = (ev) => {
     birthplace: form.birthplace.value,
   }
 
-  details.innerHTML = buildList(formValues)
+  details.appendChild(buildList(formValues))
 }
 
 personForm.addEventListener('submit', handleSubmit)
