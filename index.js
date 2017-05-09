@@ -1,14 +1,16 @@
 const personForm = document.querySelector('form')
 const details = document.querySelector('.details')
-function handleSubmit(ev) {
+
+const handleSubmit = (ev) => {
   ev.preventDefault()
-  console.log(this.firstName.value)
-  // details.textContent = this.firstName.value
-  // details.innerHTML = `<strong>${this.firstName.value}</strong>`
-  
+  const firstName = ev.target.firstName.value
+  console.log(firstName)
+  // details.textContent = firstName
+  // details.innerHTML = `<strong>${firstName}</strong>`
+
   const em = document.createElement('em')
-  em.textContent = this.firstName.value
+  em.textContent = firstName
   details.appendChild(em)
 }
 
-personForm.onsubmit = handleSubmit
+personForm.addEventListener('submit', handleSubmit)
