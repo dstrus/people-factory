@@ -1,41 +1,31 @@
 const personForm = document.querySelector('form')
 
-const renderColor = (color) => (`
-  <div style="height: 100px; width: 100px; background-color: ${color}">
-  </div>
-`)
+const renderColor = (color) => {
+  const colorDiv = document.createElement('div')
+  colorDiv.style.height = '100px'
+  colorDiv.style.width = '100px'
+  colorDiv.style.backgroundColor = color
+  return colorDiv.outerHTML
+}
 
-const buildListItem = (item) => {
-  return `
-    <li>
-      <dt>${item.name}</dt>
-      <dd>${item.value}</dd>
-    </li>
-  `
+const buildListItem = (term, definition) => {
+  const li = document.createElement('li')
+  const dt = document.createElement('dt')
+  const dd = document.createElement('dd')
+  dt.textContent = term
+  dd.innerHTML = definition
+  li.appendChild(dt)
+  li.appendChild(dd)
+  return li
 }
 
 const buildList = (listValues) => {
-  const colorDiv = renderColor(listValues.hairColor)
-  const dl = document.createElement('dl');
-  dl.style.border = '1px solid #1779ba';
-  dl.innerHTML = `
-    <li>
-      <dt>First Name</dt>
-      <dd>${listValues.firstName}</dd>
-    </li>
-    <li>
-      <dt>Hair Color</dt>
-      <dd>${colorDiv}</dd>
-    </li>
-    <li>
-      <dt>Age</dt>
-      <dd>${listValues.age}</dd>
-    </li>
-    <li>
-      <dt>Birthplace</dt>
-      <dd>${listValues.birthplace}</dd>
-    </li>
-  `
+  const dl = document.createElement('dl')
+  dl.style.border = '1px solid #1779ba'
+  dl.appendChild(buildListItem('Name', listValues.firstName))
+  dl.appendChild(buildListItem('Hair Color', listValues.hairColor))
+  dl.appendChild(buildListItem('Age', listValues.age))
+  dl.appendChild(buildListItem('Birthplace', listValues.birthplace))
 
   return dl
 }
@@ -47,7 +37,7 @@ const handleSubmit = (ev) => {
 
   const formValues = {
     firstName: form.firstName.value,
-    hairColor: form.hairColor.value,
+    hairColor: renderColor(form.hairColor.value),
     age: form.age.value,
     birthplace: form.birthplace.value,
   }
