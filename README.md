@@ -1,5 +1,22 @@
 # People Factory
 
+## Topics
+* Anatomy of an HTML element (tags, attributes, contents)
+* Basic CSS selector syntax
+  * Element name (`div`, `h1`, `p`, etc.)
+  * Element ID (`#theID`, `div#theID`, etc.)
+  * Class name (`.theClass`, `p.theClass`, etc.)
+* Basic DOM manipulation
+  * `document.querySelector`/`document.querySelectorAll`
+  * `.textContent`/`.innerText`/`.innerHTML`
+* Developer console
+  * `console.log`
+  * `console.group`/`.groupEnd`/`.groupCollapsed`
+* Basic event handling
+  * `onsubmit`
+  * Anonymous functions
+  * `.preventDefault`
+
 ## Goal: Grab values from form fields and add them to a list.
 
 You'll need to employ these concepts that we used in class:

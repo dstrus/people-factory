@@ -1,4 +1,4 @@
-(function() {
+{
   const personForm = document.querySelector('form')
 
   const renderColor = (color) => {
@@ -46,4 +46,4 @@
   }
 
   personForm.addEventListener('submit', handleSubmit)
-})()
+}
