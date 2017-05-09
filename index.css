@@ -1,5 +1,21 @@
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800|Gentium+Book+Basic:400i');
+
 body {
   padding: 1rem;
+}
+
+h1 {
+  font: 800 64px/64px 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h1 span {
+  font: 400 60px/60px 'gentium book basic';
+  font-style: italic;
+  text-transform: none;
+  margin: 0 4px 0 -10px;
 }
 
 section {
