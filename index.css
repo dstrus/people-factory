@@ -1,7 +1,8 @@
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800|Gentium+Book+Basic:400i');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,800|Gentium+Book+Basic:400i');
 
 body {
+  font-family: 'Open Sans', sans-serif;
   padding: 1rem;
 }
 
