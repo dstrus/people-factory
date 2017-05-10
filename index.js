@@ -3,8 +3,8 @@
 
   const renderColor = (color) => {
     const colorDiv = document.createElement('div')
-    colorDiv.style.height = '100px'
     colorDiv.style.width = '100px'
+    colorDiv.style.height = '20px'
     colorDiv.style.backgroundColor = color
     return colorDiv.outerHTML
   }
@@ -43,6 +43,7 @@
     }
 
     details.appendChild(buildList(formValues))
+    form.reset()
   }
 
   personForm.addEventListener('submit', handleSubmit)
